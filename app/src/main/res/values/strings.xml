@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">WeatherApp</string>
+    <string name="today">Today</string>
+    <string name="temperature">Temperatura</string>
+    <string name="wind">Wiatr</string>
+    <string name="humidity">Wilgotność \npowietrza</string>
+    <string name="pressure">Ciśnienie</string>
+    <string name="city_gliwice">Gliwice</string>
+    <string name="hour_placeholder">12:00</string>
+
+</resources>
