@@ -63,13 +63,15 @@
                             android:layout_height="wrap_content" android:id="@+id/currentHourTV"
                             android:layout_weight="2"
                             android:gravity="center_vertical|center_horizontal"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body2" android:textSize="18sp"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                             android:layout_marginTop="8dp" android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp" android:layout_marginBottom="4dp"/>
+                            android:layout_marginRight="4dp" android:layout_marginBottom="4dp"
+                            app:autoSizeMaxTextSize="36dp" app:autoSizeMinTextSize="20dp"
+                            app:autoSizeTextType="uniform"/>
                     <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" app:srcCompat="@drawable/sun96"
-                            android:id="@+id/imageView"
+                            android:id="@+id/mainWeatherIcon"
                             android:layout_weight="8" android:layout_gravity="center_vertical|center_horizontal"
                             android:layout_marginLeft="6dp" android:layout_marginRight="6dp"
                             android:layout_marginBottom="6dp" android:layout_marginTop="6dp"/>
@@ -92,7 +94,9 @@
                                 android:gravity="center_vertical"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                                 android:layout_marginBottom="2dp" android:layout_marginTop="2dp"
-                                android:layout_marginLeft="2dp" android:layout_marginRight="2dp"/>
+                                android:layout_marginLeft="2dp" android:layout_marginRight="2dp"
+                                app:autoSizeMinTextSize="16dp" app:autoSizeMaxTextSize="36dp"
+                        />
                         <TextView
                                 android:text="TextView"
                                 android:layout_width="wrap_content"
@@ -101,7 +105,9 @@
                                 android:gravity="center_vertical"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 android:layout_marginBottom="2dp" android:layout_marginTop="2dp"
-                                android:layout_marginLeft="2dp" android:layout_marginRight="2dp"/>
+                                android:layout_marginLeft="4dp" android:layout_marginRight="4dp"
+                                app:autoSizeMaxTextSize="36dp" app:autoSizeMinTextSize="20dp"
+                                app:autoSizeTextType="uniform"/>
                     </TableRow>
                     <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
                               android:weightSum="10" android:layout_weight="2">
@@ -113,7 +119,9 @@
                                 android:gravity="center_vertical"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                                 android:layout_marginBottom="2dp" android:layout_marginTop="2dp"
-                                android:layout_marginLeft="2dp" android:layout_marginRight="2dp"/>
+                                android:layout_marginLeft="2dp" android:layout_marginRight="2dp"
+                                app:autoSizeMinTextSize="16dp" app:autoSizeMaxTextSize="36dp"
+                        />
                         <TextView
                                 android:text="TextView"
                                 android:layout_width="wrap_content"
@@ -122,7 +130,9 @@
                                 android:gravity="center_vertical"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 android:layout_marginBottom="2dp" android:layout_marginTop="2dp"
-                                android:layout_marginLeft="2dp" android:layout_marginRight="2dp"/>
+                                android:layout_marginLeft="4dp" android:layout_marginRight="4dp"
+                                app:autoSizeMaxTextSize="36dp" app:autoSizeMinTextSize="20dp"
+                                app:autoSizeTextType="uniform"/>
                     </TableRow>
                     <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
                               android:layout_weight="2" android:weightSum="10">
@@ -134,7 +144,9 @@
                                 android:gravity="center_vertical|center_horizontal"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                                 android:layout_marginBottom="2dp" android:layout_marginTop="2dp"
-                                android:layout_marginLeft="2dp" android:layout_marginRight="2dp"/>
+                                android:layout_marginLeft="2dp" android:layout_marginRight="2dp"
+                                app:autoSizeMinTextSize="16dp" app:autoSizeMaxTextSize="36dp"
+                        />
                         <TextView
                                 android:text="TextView"
                                 android:layout_width="wrap_content"
@@ -143,7 +155,9 @@
                                 android:gravity="center_vertical"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 android:layout_marginBottom="2dp" android:layout_marginTop="2dp"
-                                android:layout_marginLeft="2dp" android:layout_marginRight="2dp"/>
+                                android:layout_marginLeft="4dp" android:layout_marginRight="4dp"
+                                app:autoSizeMaxTextSize="36dp" app:autoSizeMinTextSize="20dp"
+                                app:autoSizeTextType="uniform"/>
                     </TableRow>
                     <TableRow android:layout_width="match_parent" android:layout_height="match_parent"
                               android:layout_weight="2" android:weightSum="10">
@@ -155,7 +169,9 @@
                                 android:gravity="center_vertical"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                                 android:layout_marginBottom="2dp" android:layout_marginTop="2dp"
-                                android:layout_marginLeft="2dp" android:layout_marginRight="2dp"/>
+                                android:layout_marginLeft="2dp" android:layout_marginRight="2dp"
+                                app:autoSizeMinTextSize="16dp" app:autoSizeMaxTextSize="36dp"
+                        />
                         <TextView
                                 android:text="TextView"
                                 android:layout_width="wrap_content"
@@ -164,7 +180,9 @@
                                 android:gravity="center_vertical"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 android:layout_marginBottom="2dp" android:layout_marginTop="2dp"
-                                android:layout_marginLeft="2dp" android:layout_marginRight="2dp"/>
+                                android:layout_marginLeft="4dp" android:layout_marginRight="4dp"
+                                app:autoSizeMaxTextSize="36dp" app:autoSizeMinTextSize="20dp"
+                                app:autoSizeTextType="uniform"/>
                     </TableRow>
                 </TableLayout>
             </LinearLayout>
@@ -173,7 +191,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/descriptionTV" android:layout_weight="1"
                     android:gravity="center_vertical|center_horizontal" android:layout_margin="2dp"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:background="@color/colorPrimary"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView

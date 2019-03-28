@@ -1,6 +1,7 @@
 package com.swistak.weatherapp
 
 import org.json.JSONObject
+import kotlin.math.roundToInt
 
 class ThreeHourWeatherForecast() {
     var city = "Gliwice"
@@ -25,5 +26,16 @@ class ThreeHourWeatherForecast() {
         windSpeed =  forecastArrayItem.getJSONObject("wind").getString("speed")
         date = dateTime[0].substring(8,10) +"-"+dateTime[0].substring(5,7)+"-"+dateTime[0].substring(0,4)
         time = dateTime[1].substring(0,5)
+
+        temperature = roundToInteger(temperature)
+        pressure = roundToInteger(pressure)
+    }
+
+    fun roundToInteger(roundedValue : String) : String{
+        var doubleValue = roundedValue.toDouble()
+        //val df = DecimalFormat("#")
+        //df.roundingMode = RoundingMode.CEILING
+        //return df.format(doubleTemp)
+        return doubleValue.roundToInt().toString()
     }
 }
