@@ -69,6 +69,7 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     fun updateView(){
+        CityTV.text = forecastPeriodsArray[0].city
         dateTV.text = forecastPeriodsArray[0].date
         currentHourTV.text = forecastPeriodsArray[0].time
         currentTemperatureTV.text = forecastPeriodsArray[0].temperature+0x00B0.toChar()+"C"
