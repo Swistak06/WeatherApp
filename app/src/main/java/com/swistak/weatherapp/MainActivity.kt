@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var forecastJSON : JSONObject
     val REQUEST_INTERNET = 1
     val forecastPeriodsArray = Array(4) { ThreeHourWeatherForecast() }
-    val forecastIcons = arrayOf(R.drawable.sun96, R.drawable.moon96, R.drawable.rain96,R.drawable.clouds96, R.drawable.storm96,
-        R.drawable.cloud_day96, R.drawable.cloud_night96,R.drawable.storm96, R.drawable.snow96)
+    val forecastIcons = arrayOf(R.drawable.sun96, R.drawable.moon96,R.drawable.rain96, R.drawable.clouds96, R.drawable.cloudday96, R.drawable.cloudnight96,  R.drawable.storm96,
+        R.drawable.snow96,R.drawable.haze96, R.drawable.fog96)
 
 
 
@@ -86,28 +86,47 @@ class MainActivity : AppCompatActivity() {
         ThirdTemperatureTV.text = forecastPeriodsArray[2].temperature+0x00B0.toChar()+"C"
         FourthTemperatureTV.text = forecastPeriodsArray[3].temperature+0x00B0.toChar()+"C"
 
-        updateIcons(forecastPeriodsArray[0].sky, mainWeatherIcon,forecastPeriodsArray[0].time.substring(0,2).toInt(),forecastIcons)
-        updateIcons(forecastPeriodsArray[1].sky, SecondWeatherIconIV,forecastPeriodsArray[1].time.substring(0,2).toInt(),forecastIcons)
-        updateIcons(forecastPeriodsArray[2].sky, ThirdWeatherIconIV,forecastPeriodsArray[2].time.substring(0,2).toInt(),forecastIcons)
-        updateIcons(forecastPeriodsArray[3].sky, FourthWeatherIconIV,forecastPeriodsArray[3].time.substring(0,2).toInt(),forecastIcons)
+        updateIcons(forecastPeriodsArray[0].icon, mainWeatherIcon,forecastPeriodsArray[0].time.substring(0,2).toInt(),forecastIcons)
+        updateIcons(forecastPeriodsArray[1].icon, SecondWeatherIconIV,forecastPeriodsArray[1].time.substring(0,2).toInt(),forecastIcons)
+        updateIcons(forecastPeriodsArray[2].icon, ThirdWeatherIconIV,forecastPeriodsArray[2].time.substring(0,2).toInt(),forecastIcons)
+        updateIcons(forecastPeriodsArray[3].icon, FourthWeatherIconIV,forecastPeriodsArray[3].time.substring(0,2).toInt(),forecastIcons)
     }
 
-    fun updateIcons(main : String, iconReplaced : ImageView, hour : Int, forecastIcons : Array<Int>){
-        when(main.toLowerCase()){
-            "rain" -> iconReplaced.setImageResource(forecastIcons[2])
-            "shower rain" -> iconReplaced.setImageResource(forecastIcons[2])
-            "scattered clouds" -> iconReplaced.setImageResource(forecastIcons[3])
-            "broken clouds" -> iconReplaced.setImageResource(forecastIcons[3])
-            "thunderstorm" -> iconReplaced.setImageResource(forecastIcons[6])
-            "snow" -> iconReplaced.setImageResource(forecastIcons[7])
-            "clear sky" ->
-                if(hour >= 21 || hour < 6 )
-                    iconReplaced.setImageResource(forecastIcons[1])
-                else iconReplaced.setImageResource(forecastIcons[0])
-            "few clouds" ->
-                if(hour >= 21 || hour < 6 )
-                iconReplaced.setImageResource(forecastIcons[5])
-            else iconReplaced.setImageResource(forecastIcons[4])
+    fun updateIcons(icon : String, iconReplaced : ImageView, hour : Int, forecastIcons : Array<Int>){
+        when(icon.toLowerCase()){
+            //Clear sky
+            "01d" -> iconReplaced.setImageResource(forecastIcons[0])
+            "01n" -> iconReplaced.setImageResource(forecastIcons[1])
+
+            //Partially clouded
+            "02d" -> iconReplaced.setImageResource(forecastIcons[4])
+            "02n" -> iconReplaced.setImageResource(forecastIcons[5])
+
+            //Cloudy
+            "03d" -> iconReplaced.setImageResource(forecastIcons[3])
+            "04d" -> iconReplaced.setImageResource(forecastIcons[3])
+            "03n" -> iconReplaced.setImageResource(forecastIcons[3])
+            "04n" -> iconReplaced.setImageResource(forecastIcons[3])
+
+            //Rain
+            "09d" -> iconReplaced.setImageResource(forecastIcons[2])
+            "09n" -> iconReplaced.setImageResource(forecastIcons[2])
+            "10d" -> iconReplaced.setImageResource(forecastIcons[2])
+            "10n" -> iconReplaced.setImageResource(forecastIcons[2])
+
+            //Thunderstorm
+            "11d" -> iconReplaced.setImageResource(forecastIcons[6])
+            "11n" -> iconReplaced.setImageResource(forecastIcons[6])
+
+            //Snow
+            "13d" -> iconReplaced.setImageResource(forecastIcons[7])
+            "13n" -> iconReplaced.setImageResource(forecastIcons[7])
+
+            //Mist
+            "50d" -> iconReplaced.setImageResource(forecastIcons[8])
+            "50n" -> iconReplaced.setImageResource(forecastIcons[9])
+
+
         }
 
 

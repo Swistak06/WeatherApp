@@ -6,7 +6,7 @@ import kotlin.math.roundToInt
 class ThreeHourWeatherForecast() {
     var city = "Gliwice"
     var temperature = "0.0"
-    var sky = "Pochmurno"
+    var icon = "01d"
     var description = "opis"
     var windSpeed = "2.5"
     var pressure = "1000"
@@ -21,7 +21,7 @@ class ThreeHourWeatherForecast() {
         temperature = forecastArrayItem.getJSONObject("main").getString("temp")
         humidity = forecastArrayItem.getJSONObject("main").getString("humidity")
         pressure = forecastArrayItem.getJSONObject("main").getString("pressure")
-        sky = forecastArrayItem.getJSONArray("weather").getJSONObject(0).getString("main")
+        icon = forecastArrayItem.getJSONArray("weather").getJSONObject(0).getString("icon")
         description = forecastArrayItem.getJSONArray("weather").getJSONObject(0).getString("description").capitalize()
         windSpeed =  forecastArrayItem.getJSONObject("wind").getString("speed")
         date = dateTime[0].substring(8,10) +"-"+dateTime[0].substring(5,7)+"-"+dateTime[0].substring(0,4)
