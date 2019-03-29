@@ -1,3 +1,3 @@
 # WeatherApp
 
-#Simple weather app created in Kotlin.
+Simple weather app created in Kotlin.
