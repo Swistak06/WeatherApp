@@ -25,7 +25,7 @@
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
             app:boxStrokeColor="@color/strokeColor" android:id="@+id/textInputLayout"
-            app:layout_constraintHorizontal_bias="1.0" app:layout_constraintVertical_bias="0.347">
+            app:layout_constraintHorizontal_bias="1.0" app:layout_constraintVertical_bias="0.264">
 
         <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -33,24 +33,18 @@
         />
 
     </com.google.android.material.textfield.TextInputLayout>
+
     <Button
-            android:text="@string/szukaj"
+            android:id="@+id/szukajBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wyświetl"
             style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:id="@+id/szukajButton"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" android:textSize="18sp"/>
-    <Button
-            android:text="Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/button2" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"/>
+            android:textSize="18sp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

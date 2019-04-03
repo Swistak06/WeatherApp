@@ -20,13 +20,9 @@ class CityChooseFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_city_choose, container, false)
-
-        view.setOnClickListener{
+        view.szukajBtn.setOnClickListener {
             listener?.szukajButtonClick()
-        }
 
-        view.button2.setOnClickListener{
-            listener?.szukajButtonClick()
         }
         return view
     }
