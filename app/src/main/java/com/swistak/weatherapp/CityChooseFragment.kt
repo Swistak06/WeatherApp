@@ -1,7 +1,7 @@
 package com.swistak.weatherapp
 
 import android.content.Context
-import android.net.Uri
+import android.os.AsyncTask
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,11 +9,22 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_city_choose.*
 import kotlinx.android.synthetic.main.fragment_city_choose.view.*
+import org.json.JSONObject
+import java.lang.Exception
+import java.net.HttpURLConnection
+import java.net.URL
 
 
 class CityChooseFragment : Fragment() {
 
     private var listener: CityChooseListener? = null
+
+    var urlBegin = "http://api.openweathermap.org/data/2.5/forecast?q="
+    var urlEnd = "&appid=fc0d19e416fe1e275a8b17aaab35071d&units=metric&lang=pl"
+
+    lateinit var forecastJSON : JSONObject
+
+    val forecastPeriodsArray = Array(4) { ThreeHourWeatherForecast() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,8 +32,7 @@ class CityChooseFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_city_choose, container, false)
         view.szukajBtn.setOnClickListener {
-            listener?.szukajButtonClick()
-
+            AsyncTaskHandleJson().execute(urlBegin + cityInput.text + urlEnd)
         }
         return view
     }
@@ -42,6 +52,40 @@ class CityChooseFragment : Fragment() {
     }
 
     interface CityChooseListener {
-        fun szukajButtonClick()
+        fun szukajButtonClick(forecastPeriodsArray : Array<ThreeHourWeatherForecast>)
+    }
+
+
+    inner class AsyncTaskHandleJson : AsyncTask<String, String, String>() {
+        override fun doInBackground(vararg url: String?): String {
+            var text: String = ""
+            val connection = URL(url[0]).openConnection() as HttpURLConnection
+            try {
+                connection.connect()
+                text = connection.inputStream.use { it.reader().use { reader -> reader.readText() } }
+            } catch (e: Exception) {
+                print(e.message)
+                e.printStackTrace()
+            } finally {
+                connection.disconnect()
+            }
+            return text;
+        }
+
+        override fun onPostExecute(result: String?) {
+            super.onPostExecute(result)
+            try{
+                forecastJSON = JSONObject(result)
+                for (i in 0..3) {
+                    forecastPeriodsArray[i].createOnePeriodForecastObject(forecastJSON, i)
+                }
+                listener?.szukajButtonClick(forecastPeriodsArray)
+            }
+            catch (e : Exception){
+                e.printStackTrace()
+                //send warning
+            }
+            //updateView()
+        }
     }
 }

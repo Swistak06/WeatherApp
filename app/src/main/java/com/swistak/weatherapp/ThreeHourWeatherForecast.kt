@@ -18,6 +18,7 @@ class ThreeHourWeatherForecast() {
     fun createOnePeriodForecastObject(jsonString : JSONObject, periodNumber : Int){
         val forecastArrayItem = JSONObject(jsonString.getJSONArray("list").get(periodNumber).toString())
         val dateTime = forecastArrayItem.getString("dt_txt").split(" ")
+        city = jsonString.getJSONObject("city").getString("name")
         temperature = forecastArrayItem.getJSONObject("main").getString("temp")
         humidity = forecastArrayItem.getJSONObject("main").getString("humidity")
         pressure = forecastArrayItem.getJSONObject("main").getString("pressure")

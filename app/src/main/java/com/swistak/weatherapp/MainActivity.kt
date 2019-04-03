@@ -1,26 +1,19 @@
 package com.swistak.weatherapp
 
 import android.Manifest
-import android.annotation.SuppressLint
 import android.content.pm.PackageManager
-import android.os.AsyncTask
 import android.os.Bundle
-import android.widget.ImageView
 import androidx.core.app.ActivityCompat
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
-import kotlinx.android.synthetic.main.activity_main.*
-import org.json.JSONObject
-import java.lang.Exception
-import java.net.HttpURLConnection
-import java.net.URL
 
 
 class MainActivity : AppCompatActivity(), CityChooseFragment.CityChooseListener {
 
 
-    override fun szukajButtonClick() {
+    override fun szukajButtonClick(forecastPeriodsArray: Array<ThreeHourWeatherForecast>) {
         val transaction = manager.beginTransaction()
+        weatherForecastFragment.setForecastArray(forecastPeriodsArray)
         transaction.replace(R.id.main_frame, weatherForecastFragment)
         transaction.addToBackStack(null)
         transaction.commit()
