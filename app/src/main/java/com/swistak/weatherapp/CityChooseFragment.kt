@@ -69,6 +69,10 @@ class CityChooseFragment : Fragment() {
         fun szukajButtonClick(forecastPeriodsArray : Array<ThreeHourWeatherForecast>)
     }
 
+    override fun onStart() {
+        cityInput.text!!.clear()
+        super.onStart()
+    }
 
     inner class AsyncTaskHandleJson : AsyncTask<String, String, String>() {
         override fun doInBackground(vararg url: String?): String {
@@ -99,7 +103,6 @@ class CityChooseFragment : Fragment() {
                 e.printStackTrace()
                 //send warning
             }
-            //updateView()
         }
     }
 }
