@@ -60,8 +60,8 @@
                                 android:layout_weight="2"
                                 android:gravity="center_vertical|center_horizontal"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                                android:textSize="22sp"
-                                android:layout_margin="2dp"/>
+                                android:textSize="28sp"
+                                android:layout_marginLeft="2dp" android:layout_marginRight="2dp"/>
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
                             android:layout_width="match_parent"
@@ -104,7 +104,7 @@
                                     android:layout_marginLeft="2dp" android:layout_marginRight="2dp"
                                     android:layout_weight="5"/>
                             <TextView
-                                    android:text="TextView"
+                                    android:text="@string/zero"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent" android:id="@+id/currentTemperatureTV"
                                     android:textAlignment="center"
@@ -112,7 +112,8 @@
                                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                     android:layout_marginBottom="2dp" android:layout_marginTop="2dp"
                                     android:layout_marginLeft="2dp" android:layout_marginRight="2dp"
-                                    android:layout_weight="5"/>
+                                    android:layout_weight="5" app:autoSizeMinTextSize="18dp"
+                                    app:autoSizeMaxTextSize="25dp" app:autoSizeTextType="uniform"/>
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
@@ -135,14 +136,16 @@
                                     android:layout_marginBottom="2dp" android:layout_marginTop="2dp"
                                     android:layout_marginLeft="2dp" android:layout_marginRight="2dp"/>
                             <TextView
-                                    android:text="TextView"
+                                    android:text="@string/zero"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent" android:id="@+id/currentWindspeedTV"
                                     android:layout_weight="5" android:textAlignment="center"
                                     android:gravity="center_vertical"
                                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                     android:layout_marginBottom="2dp" android:layout_marginTop="2dp"
-                                    android:layout_marginLeft="2dp" android:layout_marginRight="2dp"/>
+                                    android:layout_marginLeft="2dp" android:layout_marginRight="2dp"
+                                    app:autoSizeTextType="uniform" app:autoSizeMaxTextSize="25dp"
+                                    app:autoSizeMinTextSize="18dp"/>
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
@@ -165,14 +168,16 @@
                                     android:layout_marginBottom="2dp" android:layout_marginTop="2dp"
                                     android:layout_marginLeft="2dp" android:layout_marginRight="2dp"/>
                             <TextView
-                                    android:text="TextView"
+                                    android:text="@string/zero"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent" android:id="@+id/currentHumidityTv"
                                     android:layout_weight="5" android:textAlignment="center"
                                     android:gravity="center_vertical"
                                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                     android:layout_marginBottom="2dp" android:layout_marginTop="2dp"
-                                    android:layout_marginLeft="2dp" android:layout_marginRight="2dp"/>
+                                    android:layout_marginLeft="2dp" android:layout_marginRight="2dp"
+                                    app:autoSizeTextType="uniform" app:autoSizeMaxTextSize="25dp"
+                                    app:autoSizeMinTextSize="18dp"/>
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
@@ -195,14 +200,16 @@
                                     android:layout_marginBottom="2dp" android:layout_marginTop="2dp"
                                     android:layout_marginLeft="2dp" android:layout_marginRight="2dp"/>
                             <TextView
-                                    android:text="TextView"
+                                    android:text="@string/zero"
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent" android:id="@+id/currentPressureTV"
                                     android:layout_weight="5" android:textAlignment="center"
                                     android:gravity="center_vertical"
                                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                     android:layout_marginBottom="2dp" android:layout_marginTop="2dp"
-                                    android:layout_marginLeft="2dp" android:layout_marginRight="2dp"/>
+                                    android:layout_marginLeft="2dp" android:layout_marginRight="2dp"
+                                    app:autoSizeTextType="uniform" app:autoSizeMaxTextSize="25dp"
+                                    app:autoSizeMinTextSize="18dp"/>
                         </LinearLayout>
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
@@ -214,7 +221,7 @@
                     android:layout_marginLeft="2dp" android:layout_marginRight="2dp"
                     app:cardCornerRadius="10dp" android:layout_weight="1">
                 <TextView
-                        android:text="TextView"
+                        android:text="@string/slonecznie"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:id="@+id/descriptionTV"
@@ -268,7 +275,7 @@
                             android:layout_height="wrap_content" app:srcCompat="@drawable/sun96"
                             android:id="@+id/SecondWeatherIconIV" android:layout_weight="7"/>
                     <TextView
-                            android:text="25^"
+                            android:text="@string/zero"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" android:id="@+id/SecondTemperatureTV"
                             android:layout_weight="1" android:gravity="center_vertical|center_horizontal"
@@ -299,7 +306,7 @@
                             android:layout_height="wrap_content" app:srcCompat="@drawable/sun96"
                             android:id="@+id/ThirdWeatherIconIV" android:layout_weight="7"/>
                     <TextView
-                            android:text="745"
+                            android:text="@string/zero"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" android:id="@+id/ThirdTemperatureTV"
                             android:layout_weight="1" android:gravity="center_vertical|center_horizontal"
@@ -328,7 +335,7 @@
                             android:layout_height="wrap_content" app:srcCompat="@drawable/sun96"
                             android:id="@+id/FourthWeatherIconIV" android:layout_weight="7"/>
                     <TextView
-                            android:text="24"
+                            android:text="@string/zero"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" android:id="@+id/FourthTemperatureTV"
                             android:layout_weight="1" android:gravity="center_vertical|center_horizontal"
