@@ -3,16 +3,22 @@ package com.swistak.weatherapp
 import android.content.Context
 import android.os.AsyncTask
 import android.os.Bundle
+import android.view.KeyEvent
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import kotlinx.android.synthetic.main.fragment_city_choose.*
 import kotlinx.android.synthetic.main.fragment_city_choose.view.*
 import org.json.JSONObject
 import java.lang.Exception
 import java.net.HttpURLConnection
 import java.net.URL
+import android.widget.TextView
+import android.widget.TextView.OnEditorActionListener
+
+
 
 
 class CityChooseFragment : Fragment() {
@@ -34,6 +40,14 @@ class CityChooseFragment : Fragment() {
         view.szukajBtn.setOnClickListener {
             AsyncTaskHandleJson().execute(urlBegin + cityInput.text + urlEnd)
         }
+
+        view.cityInput.setOnKeyListener(View.OnKeyListener { v, keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_UP) {
+                AsyncTaskHandleJson().execute(urlBegin + cityInput.text + urlEnd)
+                return@OnKeyListener true
+            }
+            false
+        })
         return view
     }
 

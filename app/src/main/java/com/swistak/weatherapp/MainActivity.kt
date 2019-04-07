@@ -4,15 +4,19 @@ import android.Manifest
 
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
+import android.view.*
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
+import kotlinx.android.synthetic.main.fragment_city_choose.*
+import android.widget.TextView.OnEditorActionListener
+import android.view.inputmethod.EditorInfo
+import android.widget.TextView
+
+
+
 
 
 
